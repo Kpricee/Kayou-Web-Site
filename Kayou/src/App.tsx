@@ -1,71 +1,32 @@
 // src/App.tsx
 import React from 'react';
-import logoImage from './assets/logo.png';
-import './App.css'; // Nous allons créer ce fichier pour les styles spécifiques à App.tsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Pour la navigation
 
-// Composant Header simple
-function Header() {
-  return (
-      <header className="app-header">
-        <div className="container">
-          <div className="logo-container"> {/* On remplace le div.logo par un conteneur pour l'image */}
-            <img src={logoImage} alt="Logo de la guilde" className="logo-img" />
-            <a href="/" className="logo-text">NomDeVotreGuilde</a> {/* Le nom textuel à côté du logo */}
-          </div>
-          <nav>
-            <ul>
-              <li><a href="/">Accueil</a></li>
-              <li><a href="/roster">Roster</a></li>
-              <li><a href="/recrutement">Recrutement</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-  );
-}
+// Importez vos composants
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './features/HomePage'; // Créez ce fichier
 
-// Composant Hero simple pour la page d'accueil
-function Hero() {
-  return (
-      <section className="hero">
-        <div className="hero-content">
-          <h1>Rejoignez Notre Guilde Épique !</h1>
-          <p>Découvrez une guilde passionnée et partez à l'aventure ensemble.</p>
-          <button className="cta-button">Postuler maintenant !</button>
-        </div>
-      </section>
-  );
-}
-
-// Composant Footer simple
-function Footer() {
-  return (
-      <footer className="app-footer">
-        <div className="container">
-          <p>&copy; 2026 Kayou. Tous droits réservés.</p>
-          {/* Ajoutez des liens vers Discord, réseaux sociaux, etc. */}
-        </div>
-      </footer>
-  );
-}
+// Assurez-vous que main.tsx importe bien index.css (ce qui est fait par défaut avec Vite)
+// import './index.css'; // Déjà importé dans main.tsx par défaut
 
 function App() {
-  return (
-      <div className="app-container">
-        <Header />
-        <main className="app-main">
-          {/* Pour l'instant, nous mettons le Hero directement ici. Plus tard, ce sera géré par React Router */}
-          <Hero />
-
-          {/* Ici, on affichera le contenu des autres pages avec React Router */}
-          <section className="container">
-            <h2>À propos de nous</h2>
-            <p>Découvrez notre histoire, nos valeurs et pourquoi nous sommes la meilleure guilde du serveur !</p>
-          </section>
-        </main>
-        <Footer />
-      </div>
-  );
+    return (
+        <Router> {/* Le routeur englobe toute l'application */}
+            <div className="app-container bg-[#0e1419] text-[#dde3eb] font-manrope flex flex-col min-h-screen">
+                <Header />
+                <main className="flex-1 pt-20 pb-40"> {/* flex-1 fait que main prend toute la place dispo */}
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        {/* <Route path="/roster" element={<RosterPage />} /> */}
+                        {/* <Route path="/recrutement" element={<RecrutementPage />} /> */}
+                        {/* Ajoutez ici vos autres routes */}
+                    </Routes>
+                </main>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;
