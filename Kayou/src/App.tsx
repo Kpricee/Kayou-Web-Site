@@ -1,121 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// src/App.tsx
+import React from 'react';
+import logoImage from './assets/logo.png';
+import './App.css'; // Nous allons créer ce fichier pour les styles spécifiques à App.tsx
 
-function App() {
-  const [count, setCount] = useState(0)
-
+// Composant Header simple
+function Header() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+      <header className="app-header">
+        <div className="container">
+          <div className="logo-container"> {/* On remplace le div.logo par un conteneur pour l'image */}
+            <img src={logoImage} alt="Logo de la guilde" className="logo-img" />
+            <a href="/" className="logo-text">NomDeVotreGuilde</a> {/* Le nom textuel à côté du logo */}
+          </div>
+          <nav>
+            <ul>
+              <li><a href="/">Accueil</a></li>
+              <li><a href="/roster">Roster</a></li>
+              <li><a href="/recrutement">Recrutement</a></li>
+            </ul>
+          </nav>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </header>
+  );
 }
 
-export default App
+// Composant Hero simple pour la page d'accueil
+function Hero() {
+  return (
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Rejoignez Notre Guilde Épique !</h1>
+          <p>Découvrez une guilde passionnée et partez à l'aventure ensemble.</p>
+          <button className="cta-button">Postuler maintenant !</button>
+        </div>
+      </section>
+  );
+}
+
+// Composant Footer simple
+function Footer() {
+  return (
+      <footer className="app-footer">
+        <div className="container">
+          <p>&copy; 2026 Kayou. Tous droits réservés.</p>
+          {/* Ajoutez des liens vers Discord, réseaux sociaux, etc. */}
+        </div>
+      </footer>
+  );
+}
+
+function App() {
+  return (
+      <div className="app-container">
+        <Header />
+        <main className="app-main">
+          {/* Pour l'instant, nous mettons le Hero directement ici. Plus tard, ce sera géré par React Router */}
+          <Hero />
+
+          {/* Ici, on affichera le contenu des autres pages avec React Router */}
+          <section className="container">
+            <h2>À propos de nous</h2>
+            <p>Découvrez notre histoire, nos valeurs et pourquoi nous sommes la meilleure guilde du serveur !</p>
+          </section>
+        </main>
+        <Footer />
+      </div>
+  );
+}
+
+export default App;
