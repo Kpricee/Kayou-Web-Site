@@ -1,11 +1,14 @@
 // src/main.tsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx'; // Importe le composant App
-import './index.css'; // Les styles globaux
+import App from './App.tsx';
+import './index.css';
+import { BrowserRouter } from 'react-router-dom'; // Importez BrowserRouter
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-        <App /> {/* Affiche le composant App */}
+        <BrowserRouter> {/* Enveloppez App avec BrowserRouter */}
+            <App />
+        </BrowserRouter>
     </React.StrictMode>,
-)
+);
