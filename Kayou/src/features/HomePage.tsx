@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Pour les liens internes
 
 // Assurez-vous d'avoir une image dans src/assets/ nommée hero-background.jpg ou adaptez le chemin
-import heroBg from '../assets/hero-background.jpg';
+const heroBg = '/hero-background.jpg'; // Le chemin est maintenant depuis la racine publique
 
 function HomePage() {
     return (
