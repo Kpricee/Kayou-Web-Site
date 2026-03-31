@@ -1,9 +1,10 @@
 /* src/index.css */
 
-/* Les directives Tailwind sont nécessaires pour que le CDN fonctionne */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* --- Suppression des directives Tailwind si elles sont là et causent problème --- */
+/* Si tu veux que le CSS manuel fonctionne, tu peux commenter ou supprimer les lignes @tailwind */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
 
 /* Styles globaux pour l'application */
 body {
@@ -20,13 +21,56 @@ h1, h2, h3, h4, h5, h6, .font-noto-serif {
 
 /* Styles de base pour les boutons, inspirés de "pebble-button" */
 .pebble-button {
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4); /* Ombre de base */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .pebble-button:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.5); /* Ombre plus prononcée au survol */
 }
 
-/* Styles pour les icônes Material Symbols (si vous les utilisez) */
+/* Styles spécifiques pour le bouton du Hero (Appel à l'action principal) */
+.cta-button-hero {
+  background-color: #4fc3f7; /* Un bleu cyan clair pour le Hero */
+  color: #0e1419; /* Texte noir pour le contraste */
+  padding: 15px 35px;
+  font-size: 1.2em;
+  border-radius: 5px; /* Moins arrondi que pebble-button */
+  font-weight: bold; /* En gras */
+}
+.cta-button-hero:hover {
+  background-color: #039be5; /* Un bleu un peu plus foncé au survol */
+  transform: translateY(-3px);
+}
+
+/* Styles pour les boutons dans la section Projets */
+/* On réutilise pebble-button avec des couleurs spécifiques */
+.pebble-button.bg-primary { /* Bouton projet 1 */
+  background-color: #2196f3; /* Un bleu plus classique */
+  color: white; /* Texte blanc pour ce bouton */
+  padding: 12px 25px;
+  font-size: 1.05em;
+  border-radius: 1rem;
+}
+.pebble-button.bg-primary:hover {
+  background-color: #1976d2; /* Bleu plus foncé au survol */
+}
+
+.pebble-button.bg-secondary { /* Bouton projet 2 */
+  background-color: #00bcd4; /* Un bleu cyan clair */
+  color: #0e1419; /* Texte noir */
+  padding: 12px 25px;
+  font-size: 1.05em;
+  border-radius: 1rem;
+}
+.pebble-button.bg-secondary:hover {
+  background-color: #0097a6; /* Bleu cyan plus foncé au survol */
+}
+
+/* Styles pour les icônes Material Symbols */
 .material-symbols-outlined {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'OPSZ' 24;
 }

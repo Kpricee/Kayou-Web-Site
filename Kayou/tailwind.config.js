@@ -9,19 +9,19 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "primary": "#bdce89",
-                "secondary": "#fbbc00",
-                "background": "#0e1419",
-                "on-background": "#dde3eb",
+                "primary": "#a7c76d",          // Un vert un peu plus clair et vif
+                "secondary": "#ffc857",        // Un jaune/orange plus éclatant
+                "background": "#0e1419",       // Fond très sombre (on le garde)
+                "on-background": "#ffffff",    // Texte blanc pur pour le contraste maximal
                 "surface": "#0e1419",
-                "on-surface": "#dde3eb",
-                "surface-container-low": "#161c22",
-                "surface-container-high": "#252b30",
-                "primary-container": "#505e26",
-                "on-primary-container": "#dde3eb",
-                "secondary-container": "#693c0e",
+                "on-surface": "#ffffff",       // Texte blanc sur surface
+                "surface-container-low": "#1a2026", // Gris légèrement plus clair pour les cartes
+                "surface-container-high": "#252b30", // Gris un peu plus clair
+                "primary-container": "#505e26",  // Vert plus foncé
+                "on-primary-container": "#ffffff", // Texte blanc sur conteneur primaire
+                "secondary-container": "#693c0e",  // Marron/Orange
                 "on-tertiary-container": "#ffdfa0",
-                "tertiary": "#fbbc00",
+                "tertiary": "#ffc857",         // Jaune/Orange vif pour les éléments tertiaires
                 "tertiary-fixed": "#ffdfa0",
                 "outline-variant": "#434843",
             },
